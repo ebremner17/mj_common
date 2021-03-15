@@ -1,0 +1,26 @@
+<?php
+
+/**
+ * @file
+ * MJ common config.
+ */
+
+/**
+ * Implements hook_form_alter().
+ */
+function mj_common_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+
+  // If we are on the variations form, ensure that a weight is set
+  // so that shipping is applied.
+  if (
+    $form_id == 'commerce_product_variation_default_edit_form' ||
+    $form_id == 'commerce_product_variation_default_add_form'
+  ) {
+
+    // Add the default of 1kg to the weight so that shipping is applied.
+    $form['weight']['widget'][0]['#default_value'] = [
+      'number' => 1,
+      'unit' => 'kg',
+    ];
+  }
+}

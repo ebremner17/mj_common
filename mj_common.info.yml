@@ -1,0 +1,4 @@
+name: 'Montgomery James common config'
+description: 'Provides common config for Montgomery James sites'
+type: module
+core_version_requirement: ^9
